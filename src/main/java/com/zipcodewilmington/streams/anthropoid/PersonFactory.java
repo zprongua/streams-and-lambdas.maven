@@ -5,8 +5,9 @@ import com.zipcodewilmington.streams.tools.StringUtils;
 
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * Created by leon on 5/1/17.
@@ -39,16 +40,15 @@ public final class PersonFactory {
      * @return - ArrayList of Person objects
      */ // TODO
     public List<Person> createPersonList(int listSize) {
-        return null;
+        return createPersonStream(listSize).collect(toList());
     }
-
 
     /**
      * @param arrayLength - number of Person objects to create
      * @return - Array of Person objects
      */ // TODO
     public Person[] createPersonArray(int arrayLength) {
-        return null;
+        return createPersonList(arrayLength).toArray(new Person[0]);
     }
 
 
@@ -59,6 +59,6 @@ public final class PersonFactory {
      * @return - Stream representation of collection of Person objects
      */ // TODO
     public Stream<Person> createPersonStream(int streamCount) {
-        return null;
+        return Stream.generate(this::createRandomPerson).limit(streamCount);
     }
 }

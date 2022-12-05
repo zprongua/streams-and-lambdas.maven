@@ -31,7 +31,7 @@ public class TestPersonFactory implements TestConstants {
         this.warehouse = new PersonWarehouse();
 
         factory
-                .createPersonList(9999)
+                .createPersonList(50)
                 .forEach(warehouse::addPerson);
     }
 

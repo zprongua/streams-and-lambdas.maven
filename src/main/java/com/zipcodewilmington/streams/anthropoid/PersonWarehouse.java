@@ -11,8 +11,7 @@ import java.util.stream.Stream;
 /**
  * Created by leon on 5/29/17.
  * The warehouse is responsible for storing, retrieving, and filtering personSequence
- *
- * @ATTENTION_TO_STUDENTS You are FORBIDDEN from using loops of any sort within the definition of this class.
+ * @ ATTENTION_TO_STUDENTS You are FORBIDDEN from using loops of any sort within the definition of this class.
  */
 public final class PersonWarehouse implements Iterable<Person> {
     private final LoggerHandler loggerHandler = LoggerWarehouse.getLogger(PersonWarehouse.class);
@@ -20,7 +19,7 @@ public final class PersonWarehouse implements Iterable<Person> {
 
     /**
      * @param person the Person object to add to the warehouse
-     * @ATTENTION_TO_STUDENTS You are FORBIDDEN from modifying this method
+     * @ ATTENTION_TO_STUDENTS You are FORBIDDEN from modifying this method
      */
     public void addPerson(Person person) {
         loggerHandler.disbalePrinting();
@@ -66,8 +65,7 @@ public final class PersonWarehouse implements Iterable<Person> {
      */ // TODO
     public Map<Long, String> getIdToNameMap() {
         return this.people.stream()
-                .collect(Collectors.toMap(
-                        people -> people.getPersonalId(), people -> people.getName()));
+                .collect(Collectors.toMap(Person::getPersonalId, Person::getName));
     }
 
 
